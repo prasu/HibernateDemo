@@ -1,0 +1,5 @@
+package org.gcp.hib.Hibernate_Criteria;
+
+public class Supplier {
+
+}

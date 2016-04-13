@@ -1,0 +1,5 @@
+package org.gcp.hib.Hibernate2;
+
+public class UserDAOImpl implements UserDAO{
+
+}

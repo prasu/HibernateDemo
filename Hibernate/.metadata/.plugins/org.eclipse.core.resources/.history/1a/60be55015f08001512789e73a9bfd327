@@ -1,0 +1,12 @@
+package org.gcp.hib.Hibernate2;
+
+import java.util.List;
+
+public interface UserDAO {
+	
+	  public void save(User u);
+	     
+	    public List<User> list();
+	     
+
+}

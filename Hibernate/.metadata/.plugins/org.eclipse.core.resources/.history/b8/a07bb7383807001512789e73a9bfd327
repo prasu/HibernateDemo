@@ -1,0 +1,11 @@
+package org.gcp.hib.util;
+
+
+public abstract class CustomHibernateDaoSupport extends HibernateDaoSupport
+{    
+	@Autowired
+    public void anyMethodName(SessionFactory sessionFactory)
+    {
+        setSessionFactory(sessionFactory);
+    }
+}

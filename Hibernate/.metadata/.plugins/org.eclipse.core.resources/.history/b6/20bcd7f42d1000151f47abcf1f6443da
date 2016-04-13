@@ -1,0 +1,19 @@
+package org.gcp.hib.MapperExample;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.modelmapper.AbstractConverter;
+
+public class Converter extends AbstractConverter<List<Event>, List<EventData>> {
+
+	@Override
+	protected List<EventData> convert(List<Event> arg0) {
+		List<EventData> dataList = new ArrayList<EventData>();
+		
+		
+		return null;
+	}
+
+
+}

@@ -1,0 +1,35 @@
+package org.gcp.hib.MapperExample;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import org.modelmapper.AbstractConverter;
+
+public class Converter extends AbstractConverter<List<Event>, List<EventData>> {
+
+	@Override
+	protected List<EventData> convert(List<Event> eventList) {
+		List<EventData> dataList = new ArrayList<EventData>();
+		EventData data = null;
+		Collection<EventRelData> reldat = null;
+		
+		for(Event e :eventList){
+			data = new EventData();
+			data.setClient(e.getClientId().getName());
+			
+			reldat = e.getEventRelDataList();
+			Iterator itr = reldat.iterator();
+			while(itr.hasNext()) {
+		         Object element = itr.next();
+		         System.out.print(element + " ");
+		      }
+		}
+		
+		
+		return null;
+	}
+
+
+}

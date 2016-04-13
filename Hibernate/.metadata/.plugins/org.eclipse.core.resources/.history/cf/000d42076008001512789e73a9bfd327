@@ -1,0 +1,50 @@
+package org.gcp.hib.Hibernate2;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class Main 
+{
+    public static void main( String[] args )
+    {
+    	ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring2.xml");
+        
+        UserDAO userDAO = context.getBean(UserDAO.class);
+         
+        User u1 = new User();
+        u1.setId(1);
+        u1.setUserName("prasu");
+        u1.setAddress("Camden");
+        u1.setDescription("description");
+        u1.setJoinedDate(new Date());
+        u1.setUserfirstname("gcp");
+        
+        User u2= new User();
+        u2.setId(1);
+        u2.setUserName("mannu");
+        u2.setAddress("Camden");
+        u2.setDescription("description");
+        u2.setJoinedDate(new Date());
+        u2.setUserfirstname("puram");
+       
+        
+        userDAO.save(u1);
+        userDAO.save(u2);
+         
+        System.out.println("Person::"+person);
+         
+        List<Person> list = personDAO.list();
+         
+        for(Person p : list){
+            System.out.println("Person List::"+p);
+        }
+        //close resources
+        context.close(); 
+    }
+}

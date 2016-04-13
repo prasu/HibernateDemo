@@ -1,0 +1,6 @@
+package org.gcp.hib.MapperExample;
+
+public class Converter extends AbstractConverter<List<Event>, List<EventData> {
+
+
+}

@@ -1,0 +1,44 @@
+package org.gcp.hib.MapperExample;
+
+public class EventData {	
+	private String client;
+	private String springLlayer="EBIZ_SPRING";
+	private String spingTotalTime="0ms";
+	private String osgiLlayer="EBIZ_OSGI";
+	private String osgiTotalTime="0ms";
+	
+	
+	public String getClient() {
+		return client;
+	}
+	public void setClient(String client) {
+		this.client = client;
+	}
+	public String getSpringLlayer() {
+		return springLlayer;
+	}
+	public void setSpringLlayer(String springLlayer) {
+		this.springLlayer = springLlayer;
+	}
+	public String getSpingTotalTime() {
+		return spingTotalTime;
+	}
+	public void setSpingTotalTime(String spingTotalTime) {
+		this.spingTotalTime = spingTotalTime;
+	}
+	public String getOsgiLlayer() {
+		return osgiLlayer;
+	}
+	public void setOsgiLlayer(String osgiLlayer) {
+		this.osgiLlayer = osgiLlayer;
+	}
+	public String getOsgiTotalTime() {
+		return osgiTotalTime;
+	}
+	public void setOsgiTotalTime(String osgiTotalTime) {
+		this.osgiTotalTime = osgiTotalTime;
+	}
+
+	
+
+}

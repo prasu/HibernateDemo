@@ -1,0 +1,63 @@
+package org.gcp.hib.MapperExample;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+
+import org.modelmapper.AbstractConverter;
+
+public class Converter extends AbstractConverter<List<EventRelData>, HashMap<String,String>> {
+
+	@Override
+	protected HashMap<String,String> convert(List<EventRelData> relDat) {
+		HashMap<String,String> mapData = new HashMap<String,String>();
+		
+		Iterator itr = reldat.iterator();
+		while(itr.hasNext()) {
+			
+		}
+		
+		return mapData;
+	}
+
+	/*@Override
+	protected List<EventData> convert(List<Event> eventList) {
+		HashMap<String,String> mapData = new HashMap<String,String>();
+		EventData data = null;
+		Collection<EventRelData> reldat = null;
+		
+		for(Event e :eventList){
+			data = new EventData();
+			data.setClient(e.getClientId().getName());
+			
+			reldat = e.getEventRelDataList();
+			Iterator itr = reldat.iterator();
+			while(itr.hasNext()) {
+				EventRelData element = (EventRelData) itr.next();
+		        if(element.getEventData().contains("SPRING") && 
+		        		element.getEventKey().contains("LAYER")){
+		        	data.setSpringLlayer(element.getEventData());
+		        	
+		        }else if(element.getEventData().contains("SPRING") && 
+		        		element.getEventKey().contains("TOTAL")){
+		        	data.setSpingTotalTime(element.getEventData());
+		        	
+		        }else if(element.getEventData().contains("OSGI") && 
+		        		element.getEventKey().contains("LAYER")){
+		        	data.setOsgiLlayer(element.getEventData());
+		        	
+		        }else if(element.getEventData().contains("OSGI") && 
+		        		element.getEventKey().contains("TOTAL")){
+		        	data.setOsgiTotalTime(element.getEventData());
+		        }
+		      }			
+			dataList.add(data);
+		}		
+		
+		return dataList;
+	}*/
+
+
+}

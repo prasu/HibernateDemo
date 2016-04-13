@@ -1,0 +1,103 @@
+package com.att.event.dao.entity;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.hibernate.annotations.Filter;
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
+
+@Entity
+@Table(name = "EVENT")
+@FilterDef(name = "eventKeyFilter", parameters = {
+		@ParamDef(name = "keyParam1", type = "java.lang.String"),
+		@ParamDef(name = "keyParam2", type = "java.lang.String") }
+
+)
+public class Event implements java.io.Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@Column(name = "ID")
+	private int id;
+	@Column(name = "EVENT_TIME")
+	@Temporal(TemporalType.DATE)
+	private Date eventTime;
+
+	@Column(name = "TRANSACTION_ID")
+	private String transactionId;
+
+	@ManyToOne
+	@JoinColumn(name = "CLIENT_ID")
+	private Clients clientId;
+
+	@ManyToOne
+	@JoinColumn(name = "EVENT_TYPE_ID")
+	private EventType eventType;
+
+	@OneToMany(mappedBy = "eventId", fetch = FetchType.EAGER)
+	@Filter(name = "eventKeyFilter", condition = "(EVENT_KEY like :keyParam1 "
+			+ "or EVENT_KEY like :keyParam2)")
+	private Collection<EventRelData> eventRelDataList = new ArrayList<EventRelData>();
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getEventTime() {
+		return eventTime;
+	}
+
+	public void setEventTime(Date eventTime) {
+		this.eventTime = eventTime;
+	}
+
+	public String getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(String transactionId) {
+		this.transactionId = transactionId;
+	}
+
+	public EventType getEventType() {
+		return eventType;
+	}
+
+	public void setEventType(EventType eventType) {
+		this.eventType = eventType;
+	}
+
+	public Clients getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(Clients clientId) {
+		this.clientId = clientId;
+	}
+
+	public Collection<EventRelData> getEventRelDataList() {
+		return eventRelDataList;
+	}
+
+	public void setEventRelDataList(Collection<EventRelData> eventRelDataList) {
+		this.eventRelDataList = eventRelDataList;
+	}
+
+}

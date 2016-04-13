@@ -1,0 +1,12 @@
+package org.gcp.hib.MapperExample;
+
+import org.modelmapper.PropertyMap;
+
+public class EventDataMapper extends PropertyMap<Event, EventData> {
+
+	@Override
+	protected void configure() {
+		
+		
+	}
+}

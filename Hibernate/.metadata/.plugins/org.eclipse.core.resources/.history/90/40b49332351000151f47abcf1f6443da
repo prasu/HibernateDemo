@@ -1,0 +1,36 @@
+package org.gcp.hib.MapperExample;
+
+import java.util.List;
+
+import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import ch.qos.logback.core.helpers.Transform;
+
+public class EventDataMapper {
+	@Autowired
+	private ModelMapper modelMapper;
+	
+	public void init(){
+		modelMapper.addMappings(getEventData());
+	}
+	
+	private PropertyMap<List<EventData>, List<Event>> getEventData() {
+        PropertyMap<List<EventData>, List<Event>> map = new PropertyMap<List<EventData>, List<Event>>() {
+
+            @Override
+            protected void configure() {
+
+                using(new Converter()).map(source.getMap()).setList(null);
+
+            }
+
+        };
+
+        return map;
+
+    }
+
+
+}
